@@ -1,55 +1,232 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>春季旅行计划</title>
+    <title>母亲节快乐</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ffcce6, #fff);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            color: #d23669;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .message {
+            color: #666;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b81;
+            transform: rotate(45deg);
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        
+        .heart:before, .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b81;
+            border-radius: 50%;
+        }
+        
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .heart:after {
+            top: 0;
+            left: -10px;
+        }
+        
+        .flower {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .flower .center {
+            width: 15px;
+            height: 15px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .flower .petal {
+            width: 30px;
+            height: 15px;
+            background-color: #ff9ff3;
+            border-radius: 15px;
+            position: absolute;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .signature {
+            font-style: italic;
+            color: #d23669;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            animation: fadeIn 3s ease-in-out;
+        }
+    </style>
 </head>
-
 <body>
-    <img scr ="https://tse3-mm.cn.bing.net/th/id/OIP-C.OhUOhPbzdELTIt6QY9fV0AHaEo?w=300&h=187&c=7&pcl=1b1a19&r=0&o=5&pid=1.7" alt="图片" width="100" height="42">
-    <p>镇江两日游</p>
-    <p>    第一天
-        买G7162次列车到镇江大概十一点多然后先把行李放回酒店,在酒店附近吃一个饭(大概9分钟左右)出发去金山寺，路线具体如图（大概五分钟左右的路程）从金山寺出来应该就到晚上了，然后可以去镇江西津渡（好吃的特别多）住宿可以在这附近夜景比较好看
-        就是在这逛吃逛吃</p>
-        <p>第二天
-        早上起来可以在西津渡转一圈（因为住宿选在西津渡附近，这样比较省时间）
-        转完还可以在这附近搞点吃的，然后出发去焦山（感觉北固山没有啥玩的）
-        在这可以看演出乾隆下江南,还可以一起摇撸船(大概13分钟左右)
-        然后就可以回酒店，准备第二天回去
-        </p>
+    <div class="container">
+        <h1>母亲节快乐！</h1>
+        <div class="message">
+            亲爱的妈妈，感谢您无私的爱与付出。<br>
+            您是我生命中最温暖的阳光，<br>
+            今天我想对您说：我爱您！<br>
+            愿您永远健康、快乐、美丽！
+        </div>
+        <div class="signature">—— 爱您的孩子</div>
+    </div>
+    
+    <script>
+        // 创建漂浮的心形
+        function createHearts() {
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                
+                // 随机位置
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                // 随机大小
+                const size = Math.random() * 15 + 10;
+                
+                // 随机动画延迟
+                const delay = Math.random() * 3;
+                
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                heart.style.animationDelay = `${delay}s`;
+                
+                document.body.appendChild(heart);
+            }
+        }
+        
+        // 创建花朵
+        function createFlowers() {
+            const flowerCount = 15;
+            
+            for (let i = 0; i < flowerCount; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                
+                // 随机位置
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                
+                // 随机大小
+                const scale = Math.random() * 0.5 + 0.5;
+                
+                // 随机动画延迟
+                const delay = Math.random() * 4;
+                
+                flower.style.left = `${x}px`;
+                flower.style.top = `${y}px`;
+                flower.style.transform = `scale(${scale})`;
+                flower.style.animationDelay = `${delay}s`;
+                
+                // 创建花蕊
+                const center = document.createElement('div');
+                center.classList.add('center');
+                flower.appendChild(center);
+                
+                // 创建花瓣
+                for (let j = 0; j < 8; j++) {
+                    const petal = document.createElement('div');
+                    petal.classList.add('petal');
+                    petal.style.transform = `rotate(${j * 45}deg) translateX(20px)`;
+                    flower.appendChild(petal);
+                }
+                
+                document.body.appendChild(flower);
+            }
+        }
+        
+        // 窗口大小改变时重新创建元素
+        window.addEventListener('resize', function() {
+            const hearts = document.querySelectorAll('.heart');
+            const flowers = document.querySelectorAll('.flower');
+            
+            hearts.forEach(heart => heart.remove());
+            flowers.forEach(flower => flower.remove());
+            
+            createHearts();
+            createFlowers();
+        });
+        
+        // 初始创建元素
+        createHearts();
+        createFlowers();
+    </script>
 </body>
-<div style="
-background-color:#f92807;
-text-align:center;
-padding:40px;
-font-size:12px;">
-<p>音乐网站</p>
-<a href="https://y.qq.com/">qq音乐</a>
-</div>
-<div style="
-background-color:#20f80c;
-text-align:center;
-padding:80px;
-font-size:12px;">
-<p>音乐网站</p>
-<a href="https://music.163.com/?from=infinity">网易云音乐</a>
-</div>
-<div style="
-background: color #fe0202;;
-text-align:center;
-padding: 60px;
-font-size:12px;">
-<p>音乐网站</p>
-<a href="https://www.kugou.com/">酷狗音乐</a>
-</div>
-</html>
-<div style="
-background: color #0418f7;;
-text-align:center;
-padding:40px;
-font-size:12px;">
-<p>音乐网站</p>
-<a href="https://conch.xiami.com/">虾米音乐</a>
-</div>
 </html>
